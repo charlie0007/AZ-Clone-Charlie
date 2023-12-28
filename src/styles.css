@@ -1,0 +1,211 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100vh;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+}
+
+.home {
+  position: relative;
+  display: inline-block;
+}
+
+.header-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+  color: #aaaaaa;
+  background-color: #00050d;
+  height: 15%;
+}
+
+.profile-image {
+  background-image: url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png);
+  padding: 14px;
+  border-radius: 50rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.home-options {
+  display: flex;
+  flex-direction: column;
+  column-gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 5rem;
+  position: absolute;
+  background-color: #60626968;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.back {
+  background-color: #60626968;
+}
+
+/* .back {
+  background-color: #60626968;
+  border-radius: 4px;
+  border: 2px solid black;
+  border-top: none;
+  padding: 0 4px;
+  height: 20vh;
+  width: 5rem;
+} */
+/* .home:hover,
+.home:active {
+  background-color: #60626968;
+} */
+.categories-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  width: 60rem;
+  height: 30rem;
+  background-color: #60626968;
+  padding: 8px;
+  width: 60%;
+  height: fit-content;
+  margin: auto;
+  color: #aaaaaa;
+}
+
+.categories-list ul {
+  list-style: none;
+}
+
+.categories-list_heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50vh;
+}
+.main-images {
+  height: 60%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 5, 13, 0.8) 19.65%,
+    rgba(0, 5, 13, 0) 49.93%
+  );
+  position: relative;
+}
+.main-images ul {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  height: 100%;
+  padding: 0;
+}
+
+.main-images ul:hover {
+  transform: translateX(-100%);
+  transition: transform 2s ease-in-out;
+  animation: video-control 2s ease-in-out;
+}
+
+.main-images li {
+  height: 100%;
+  width: 100vw;
+}
+
+.main-images li video {
+  position: absolute;
+  opacity: 1;
+  z-index: -1;
+  height: 100%;
+  width: 100vw;
+}
+
+.main-images div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 5, 13, 0.8) 19.65%,
+    rgba(0, 5, 13, 0) 49.93%
+  );
+}
+.main-images img {
+  width: 100vw;
+  height: 80%;
+  object-fit: contain;
+}
+
+.main-images-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 30%;
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 5, 13, 0.8) 30.65%,
+    rgba(0, 5, 13, 0) 49.93%
+  );
+}
+
+.main-images-title img {
+  height: 70%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.main-controls {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 1rem;
+  height: 4rem;
+}
+
+.continue-container {
+  position: relative;
+  align-items: center;
+  z-index: 2;
+  display: flex;
+  height: 190px;
+  gap: 0.8rem;
+  overflow-x: auto;
+}
+
+.continue-container::-webkit-scrollbar {
+  display: none;
+}
+
+.continue-container picture {
+  border-radius: 4px;
+}
+
+.continue-container img {
+  border-radius: 4px;
+  width: 260px;
+  transition: transform 0.2s;
+}
+
+.continue-container img:hover {
+  transform: scale(1.5);
+}
+
+@media only screen and (min-width: 1000px) {
+  .main-images-title {
+    width: 50%;
+  }
+}
