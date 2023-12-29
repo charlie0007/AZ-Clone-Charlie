@@ -21,6 +21,12 @@ export const ContinueWatching = [
       "data-testid": "base-image",
       loading: "eager",
     },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+    },
   },
   {
     source1: {
@@ -43,6 +49,12 @@ export const ContinueWatching = [
       src: "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/b15d7da4c9039a532da0a1c0d988f95eb37c113c679fecf187943bf5c1cb4662._UR1920,1080_SX720_FMjpg_.jpg",
       "data-testid": "base-image",
       loading: "eager",
+    },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
     },
   },
   {
@@ -67,6 +79,12 @@ export const ContinueWatching = [
       "data-testid": "base-image",
       loading: "eager",
     },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+    },
   },
   {
     source1: {
@@ -89,6 +107,12 @@ export const ContinueWatching = [
       src: "https://m.media-amazon.com/images/S/pv-target-images/94b522817fbe019825ec6d71a12353366645dda4122dfe89dfdd91f22ce7b22d._UR1920,1080_SX720_FMjpg_.jpg",
       "data-testid": "base-image",
       loading: "eager",
+    },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
     },
   },
   {
@@ -113,6 +137,12 @@ export const ContinueWatching = [
       "data-testid": "base-image",
       loading: "eager",
     },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+    },
   },
   {
     source1: {
@@ -135,6 +165,12 @@ export const ContinueWatching = [
       src: "https://m.media-amazon.com/images/S/pv-target-images/2afb6df4e3f1d5420d1c632364e0a2c4698e9124969199f613efa39332d59617._UR1920,1080_SX720_FMjpg_.jpg",
       "data-testid": "base-image",
       loading: "eager",
+    },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
     },
   },
   {
@@ -159,6 +195,12 @@ export const ContinueWatching = [
       "data-testid": "base-image",
       loading: "eager",
     },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+    },
   },
   {
     source1: {
@@ -181,6 +223,12 @@ export const ContinueWatching = [
       src: "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/3526223bd90b5b658180eb733104cdd83e2e1a113577b8cb3242524910f0cdc5._UR1920,1080_SX720_FMpng_.png",
       "data-testid": "base-image",
       loading: "eager",
+    },
+    video: {
+      type: "video",
+      alt: "",
+      style: "aspect-ratio:16/9",
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
     },
   },
 ];

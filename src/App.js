@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ContinueWatching } from "./util";
 
 export default function App() {
@@ -11,6 +11,17 @@ export default function App() {
 
   const onCategoryClickHandler = () => {
     setCategoryOption((prev) => !prev);
+  };
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    console.log('index: ', index);
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
   };
 
   return (
@@ -25,7 +36,7 @@ export default function App() {
             Home <i class="fa-solid fa-caret-down"></i>
           </p>
           {showHomeOption && (
-            <div class={`home-options${showHomeOption ? " back" : ""}`}>
+            <div className={`home-options${showHomeOption ? " back" : ""}`}>
               <span>All</span>
               <span>Movies</span>
               <span>TV Shows</span>
@@ -123,27 +134,69 @@ export default function App() {
           </li>
         </ul>
       </div>
-      <div className="continue-container">
-        {ContinueWatching.map((picture) => (
-          <picture>
-            <source
-              type={picture.source1.type}
-              srcset={picture.source1.srcset}
-              sizes={picture.source1.sizes}
-            ></source>
-            <source
-              type={picture.source2.type}
-              srcset={picture.source2.srcset}
-              sizes={picture.source2.sizes}
-            ></source>
-            <img
-              alt=""
-              style={{ "aspect-ratio": 16 / 9 }}
-              src={picture.image.src}
-              data-testid={picture.image["data-testid"]}
-              loading={picture.image.loading}
-            />
-          </picture>
+      <div className="continue-container"
+           onMouseLeave={handleMouseLeave}
+      >
+        {ContinueWatching.map((picture, index) => (
+            <>
+              <div
+                key={index}
+                onMouseEnter={() => handleMouseEnter(index)}
+              >
+                  {hoveredIndex == index ? (
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          maxWidth: '540px', // Default max-width
+                          width: '260px',    // Default width
+                          '@media (max-width: 28em)': {
+                            width: '260px',
+                          },
+                          '@media (max-width: 55em)': {
+                            width: '260px',
+                          },
+                          '@media (max-width: 80em)': {
+                            width: '390px',
+                          },
+                          '@media (max-width: 100em)': {
+                            width: '390px',
+                          },
+                          '@media (max-width: 150em)': {
+                            width: '540px',
+                          },
+                        }}
+                      >
+                        <source src={picture.video.src} />
+                      </video>
+                  ) : (
+                    <picture>
+                      <source
+                        type={picture.source1.type}
+                        srcSet={picture.source1.srcset}
+                        sizes={picture.source1.sizes}
+                      ></source>
+                      <source
+                        type={picture.source2.type}
+                        srcSet={picture.source2.srcset}
+                        sizes={picture.source2.sizes}
+                      ></source>
+                      <img
+                        alt=""
+                        style={{ "aspectRatio": 16 / 9 }}
+                        src={picture.image.src}
+                        data-testid={picture.image["data-testid"]}
+                        loading={picture.image.loading}
+                      />
+                    </picture>
+                  )}
+              </div>
+            </>
         ))}
       </div>
     </div>
