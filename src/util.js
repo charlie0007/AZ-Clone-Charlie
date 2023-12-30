@@ -232,3 +232,37 @@ export const ContinueWatching = [
     },
   },
 ];
+
+export const MAIN_DETAILS = [
+  {
+    picsrc:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_DryDay/2446cce1-703a-4242-a0d3-9eff615b86f6._UR3840,1440_SX2880_FMjpg_.jpeg",
+    videosrc: "",
+    titleimg:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_DryDay/07045e85-add0-43cf-9922-e664b5cf5e15._AC_SX1000_FMpng_.png",
+  },
+  {
+    picsrc:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Flames_S4/3b2b49dd-650b-41db-86ef-4ffd7006d62b._UR3840,1440_SX2880_FMjpg_.jpeg",
+    videosrc:
+      "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4",
+    titleimg:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_MastMainRehaneKa/74e5c486-54a7-493a-a7ac-b56d9debdd11._AC_SX1000_FMpng_.png",
+  },
+  {
+    picsrc:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_TVOD_Oppenheimert_PriceRev119/bd4ea266-1cf8-4da9-9df8-cb0fa1b41278._UR3840,1440_SX2880_FMjpg_.jpeg",
+    videosrc:
+      "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/2ac8/6cf1/207c/44fb-be0f-56fbb535720d/ca62e238-ea24-4376-b7e5-274b916a9d19_video_720p_2500kbps_audio_aaclc_128kbps.mp4",
+    titleimg:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_TVOD_Oppenheimert_PriceRev119/6c7b3905-d19e-4701-9b8d-992f3bbb662e._AC_SX1000_FMpng_.png",
+  },
+  {
+    picsrc:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Weddingcom_Launch/105e4be8-2704-4187-bc8f-253e089601ea._UR3840,1440_SX2880_FMjpg_.jpeg",
+    videosrc:
+      "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/3284/2a0e/a951/4395-aacd-ccccd81b97c6/6df92dc4-98b8-4564-a8c9-4314df90609d_video_720p_2500kbps_audio_aaclc_128kbps.mp4",
+    titleimg:
+      "https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Weddingcom_Launch/fe91355e-6185-47e4-9913-c34455cb4133._AC_SX1000_FMpng_.png"
+  },
+];
