@@ -191,17 +191,18 @@ const Main = () => {
                   <source src={picture.video.src} />
                 </video>
               ) : (
-                <picture>
-                  <source
-                    type={picture.source1.type}
-                    srcSet={picture.source1.srcset}
-                    sizes={picture.source1.sizes}
-                  ></source>
-                  <source
-                    type={picture.source2.type}
-                    srcSet={picture.source2.srcset}
-                    sizes={picture.source2.sizes}
-                  ></source>
+                <div style={{position: "relative"}}>
+                  <picture>
+                    <source
+                      type={picture.source1.type}
+                      srcSet={picture.source1.srcset}
+                      sizes={picture.source1.sizes}
+                    ></source>
+                    <source
+                      type={picture.source2.type}
+                      srcSet={picture.source2.srcset}
+                      sizes={picture.source2.sizes}
+                    ></source>
                   <img
                     alt=""
                     style={{ aspectRatio: 16 / 9 }}
@@ -210,6 +211,13 @@ const Main = () => {
                     loading={picture.image.loading}
                   />
                 </picture>
+                  { picture.video.timeLapsed && <div className="progress-bar" style={{position: "absolute", 
+                  width: "100%", zIndex: 1, bottom : "0"}}>
+                    <span style={{backgroundColor: "#ffffff", height: "5px", width: "100%", display: "block" }}>
+                      <span style={{backgroundColor: "#1a98ff",height: "5px", width: `${(picture.video.timeLapsed/picture.video.totalTime) * 100}%`, display: "block"}}></span>
+                    </span>
+                  </div>}
+                </div>
               )}
             </div>
           </>
