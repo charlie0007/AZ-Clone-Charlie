@@ -25,7 +25,9 @@ export const ContinueWatching = [
       type: "video",
       alt: "",
       style: "aspect-ratio:16/9",
-      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4",
+      totalTime: "15",
+      timeLapsed: "6"
     },
   },
   {
@@ -83,7 +85,9 @@ export const ContinueWatching = [
       type: "video",
       alt: "",
       style: "aspect-ratio:16/9",
-      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4"
+      src: "https://s3.ll.videorolls.row.aiv-cdn.net/ww_iad/7cc0/ba1a/4752/4f00-859f-3e653bb3c359/c85d0241-c2b3-4531-b129-4e94e15e96ef_video_720p_2500kbps_audio_aaclc_128kbps.mp4",
+      totalTime: "15",
+      timeLapsed: "2"
     },
   },
   {
