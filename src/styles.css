@@ -226,6 +226,7 @@ body {
   height: 190px;
   gap: 0.8rem;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /* .continue-container::-webkit-scrollbar {
