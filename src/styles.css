@@ -106,13 +106,14 @@ body {
   overflow-x: hidden;
 }
 .main-images ul {
+  transition: transform 0.5s ease-in-out;
   display: flex;
   flex-wrap: nowrap;
   list-style: none;
   height: 100%;
   width: 100%;
   padding: 0;
-  animation: video-slide-left 12s ease-in-out forwards;
+  animation: video-slide-left 12s ease-in-out infinite;
   animation-delay: 2s;
 }
 
@@ -129,6 +130,7 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 6px;
+  /* transition: transform 0.5s ease-in-out; */
 }
 
 /* .video-adjustment {
@@ -187,11 +189,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 100%;
+  height: 80%;
   width: 30%;
   position: absolute;
   z-index: 4;
-  top: 0.9rem;
+  top: 5rem;
   left: 3rem;
   color: white;
   font-weight: bold;
@@ -330,4 +332,31 @@ article {
   width: 2.5rem !important;
   color: white !important;
   background-color: hsla(0, 0%, 100%, 0.2) !important;
+}
+
+
+.main-images ul.stopanimation {
+  animation: none;
+} 
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50rem;
+  display: inline-block;
+  background-color: white;
+  margin: 0.2rem;
+  cursor: pointer;
+}
+
+.dot.active {
+ background-color: gray;
+ transition: background-color 0.1s ease-in-out;
+}
+
+.video-play-buttons {
+  position: absolute;
+  top: 30%;
+  right:10%;
+  opacity: 0.3;
 }

@@ -1,14 +1,66 @@
 import "./styles.css";
-import { useEffect, useRef, useState, Fragment } from "react";
+import { useEffect, useRef, useState, Fragment, useReducer } from "react";
 import { ContinueWatching, MAIN_DETAILS } from "./util";
-import { createBrowserRouter, RouterProvider,NavLink } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, NavLink } from "react-router-dom";
+
+
 
 const Main = () => {
-    const [showHomeOption, setHomeOption] = useState(false);
-    const [showCategoryOption, setCategoryOption] = useState(false);
-    const [showVideo, setShowVideo] = useState(false);
-    const [storeVideoId, setStoreVideoId] = useState("");
-    const videoRef = useRef();
+  const [showHomeOption, setHomeOption] = useState(false);
+  const [showCategoryOption, setCategoryOption] = useState(false);
+  const [storeVideoId, setStoreVideoId] = useState("");
+  const videoRef = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [stopMovement,setStopMovement] = useState(false);
+  const [idleTimer, setIdleTimer] = useState(null);
+
+  const handleKeyDown = (e) => {
+    setStopMovement(prev => !prev);
+    if (e.key === "ArrowLeft") {
+      // Move to the previous image
+      console.log("ArrowLeft " + currentIndex);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? MAIN_DETAILS.length - 1 : prevIndex - 1
+      );
+    } else if (e.key === "ArrowRight") {
+      // Move to the next image
+      console.log("ArrowRight " + currentIndex);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === MAIN_DETAILS.length - 1 ? 0 : prevIndex + 1
+      );
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex]);
+
+
+
+  const resetTimer = () => {
+    clearTimeout(idleTimer);
+    setIdleTimer(setTimeout(() => {
+      // Perform actions when the user is idle for 3-4 seconds
+      setStopMovement(false);
+      console.log('User is idle');
+    }, 8000)); // Adjust the timeout value based on your requirements
+  };
+
+  useEffect(() => {
+    // Add event listeners when the component mounts
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('keydown', resetTimer);
+
+    // Clean up event listeners when the component unmounts
+    return () => {
+      document.removeEventListener('mousemove', resetTimer);
+      document.removeEventListener('keydown', resetTimer);
+    };
+  }, []);
 
   const onHomeClickHandler = () => {
     setHomeOption((prev) => !prev);
@@ -47,6 +99,23 @@ const Main = () => {
     }, 2000);
   };
 
+  
+  
+  const mainImageNavHandler = (identifier) => {
+   if(identifier === "forward"){
+    handleKeyDown({key:"ArrowRight"});
+   }else {
+    handleKeyDown({key:"ArrowLeft"});
+   }
+  }
+
+  const dotNavigator = (index) => {
+    setStopMovement(true);
+    setCurrentIndex(index);
+  }
+
+
+
   return (
     <div className="App">
       <nav className="header-nav">
@@ -56,7 +125,7 @@ const Main = () => {
           onClick={onHomeClickHandler}
         >
           <p>
-            Home <i class="fa-solid fa-caret-down"></i>
+            Home <i className="fa-solid fa-caret-down"></i>
           </p>
           {showHomeOption && (
             <div className={`home-options${showHomeOption ? " back" : ""}`}>
@@ -70,11 +139,11 @@ const Main = () => {
         <p>Live TV</p>
         <div onClick={onCategoryClickHandler}>
           <p>
-            Categories <i class="fa-solid fa-caret-down"></i>
+            Categories <i className="fa-solid fa-caret-down"></i>
           </p>
         </div>
         <p>My Stuff</p>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
         <div className="profile-image"></div>
       </nav>
       {showCategoryOption && (
@@ -104,13 +173,10 @@ const Main = () => {
         </div>
       )}
       <div className="main-images">
-        <ul>
-          {MAIN_DETAILS.map((data,index) => {
+        <ul className={stopMovement ? "stopanimation": ""} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {MAIN_DETAILS.map((data, index) => {
             return (
-              <li
-                className={`playanimation${
-                  data.videosrc === storeVideoId ? " pauseanimation" : ""
-                }`}
+            <li key={data.picsrc} 
                 onMouseEnter={() => handleVideoPlay(data.videosrc)}
                 onMouseLeave={() => handleVideoPause(data.videosrc)}
               >
@@ -136,17 +202,47 @@ const Main = () => {
                       data.videosrc === storeVideoId ? "blurimage" : ""
                     }
                     alt="Dry Day"
-                    src={data.picsrc}
+                    src={ data.picsrc}
                   />
+                  <div style={{
+                        position: "absolute",
+                        width:"100%",
+                        height:"fit-content",
+                        zIndex: 5,
+                        background: "transparent",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems:"center",
+                        top:"35%"
+                      }}>
+                    <i onClick={() => mainImageNavHandler("forward")}
+                      style={{
+                        height:"1rem",
+                        width:"1rem",
+                        color:"white"
+                      }}
+                      className="fa-solid fa-chevron-left"
+                    ></i>
+                    <i onClick={() => mainImageNavHandler("backward")}
+                     style={{
+                      height:"1rem",
+                      width:"1rem",
+                      color:"white"
+                    }}
+                      className="fa-solid fa-chevron-right"
+                    ></i>
+                  </div>
                   <section className="main-images-title">
                     <h3>#1 in India</h3>
                     <img alt="Dry Day" src={data.titleimg} />
                     <h3>Included with prime</h3>
                     <div className="main-controls">
-                      <NavLink to={`${index}`} path="/" ><i class="fa-solid fa-play"></i></NavLink>
+                      <NavLink to={`${index}`} path="/">
+                        <i className="fa-solid fa-play"></i>
+                      </NavLink>
                       <p>Play</p>
-                      <i class="fa-solid fa-plus"></i>
-                      <i class="fa-solid fa-circle-info"></i>
+                      <i className="fa-solid fa-plus"></i>
+                      <i className="fa-solid fa-circle-info"></i>
                     </div>
                   </section>
                 </div>
@@ -154,6 +250,9 @@ const Main = () => {
             );
           })}
         </ul>
+      </div>
+      <div className="dots">
+          {MAIN_DETAILS.map((el,index) => <span className={`dot${stopMovement && currentIndex === index ? " active": ""}`} onClick={() => dotNavigator(index)}/>)}
       </div>
       <div className="continue-container" onMouseLeave={handleMouseLeave}>
         {ContinueWatching.map((picture, index) => (
