@@ -1,8 +1,24 @@
 import { useParams } from "react-router-dom";
 import { MAIN_DETAILS } from "./util";
+import { useRef, useState } from "react";
 
 const CustomVideo = () => {
+  const [pauseVideo,setPauseVideo] = useState(false);
+  const videoRef = useRef();
   const { id } = useParams();
+
+
+  const pauseVideoHandler = () => {
+    if(!pauseVideo){
+      setPauseVideo(true);
+      videoRef.current.pause();
+    }else{
+      setPauseVideo(false);
+      videoRef.current.play();
+    }
+
+  }
+
   const videoLink = MAIN_DETAILS[id].videosrc;
   return (
     <div
@@ -15,7 +31,7 @@ const CustomVideo = () => {
         padding: "3rem",
       }}
     >
-      <video
+      <video ref={videoRef} onClick={pauseVideoHandler}
         style={{
           position: "absolute",
           height: "100%",
@@ -56,6 +72,10 @@ const CustomVideo = () => {
         />
         <h3>Included with prime</h3>
       </section>
+      <div className="video-play-buttons">
+     { pauseVideo &&  <i className="fa-solid fa-play" onClick={pauseVideoHandler} style={{backgroundColor:"lightgrey",margin:"1rem",padding:"1rem",borderRadius:"50%",cursor:"pointer"}}></i>}
+     { !pauseVideo && <i className="fa-solid fa-pause" onClick={pauseVideoHandler}  style={{backgroundColor:"lightgrey",margin:"1rem",padding:"1rem",borderRadius:"50%", cursor:"pointer"}}></i>}
+      </div>
     </div>
   );
 };
