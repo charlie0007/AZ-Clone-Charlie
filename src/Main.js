@@ -1,7 +1,8 @@
 import "./styles.css";
 import { useEffect, useRef, useState, Fragment } from "react";
 import { ContinueWatching, MAIN_DETAILS } from "./util";
-import { createBrowserRouter, RouterProvider,NavLink } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, NavLink } from "react-router-dom";
+
 
 const Main = () => {
     const [showHomeOption, setHomeOption] = useState(false);
@@ -143,7 +144,7 @@ const Main = () => {
                     <img alt="Dry Day" src={data.titleimg} />
                     <h3>Included with prime</h3>
                     <div className="main-controls">
-                      <NavLink to={`${index}`} path="/" ><i class="fa-solid fa-play"></i></NavLink>
+                      <NavLink to={`${index}`} ><i class="fa-solid fa-play"></i></NavLink>
                       <p>Play</p>
                       <i class="fa-solid fa-plus"></i>
                       <i class="fa-solid fa-circle-info"></i>

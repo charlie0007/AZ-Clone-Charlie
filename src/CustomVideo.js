@@ -13,6 +13,7 @@ const CustomVideo = () => {
         borderRadius: "6px",
         objectFit: "contain",
         padding: "3rem",
+        backgroundColor: "black",
       }}
     >
       <video
