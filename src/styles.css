@@ -6,10 +6,10 @@
   font-family: sans-serif;
   text-align: center;
   height: 100vh;
+  background-color: black;
 }
 
 body {
-  background-color: black;
   margin: 0;
 }
 
@@ -110,7 +110,7 @@ body {
   flex-wrap: nowrap;
   list-style: none;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   padding: 0;
   animation: video-slide-left 12s ease-in-out forwards;
   animation-delay: 2s;
@@ -165,7 +165,7 @@ body {
 } */
 
 .main-images div {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: relative;
   background: linear-gradient(
